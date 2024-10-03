@@ -97,7 +97,7 @@ class VectorSearch:
             # Log any errors that occur while creating the vector store
             logging.error(f"Error creating vector store: {str(e)}")
 
-    def similarity_search(self, query, k=10):
+    def similarity_search(self, query, k=10): # Change K to smaller values if the bot provides irrelevant information.
         try:
             # Perform a similarity search and return results with their scores
             return self.docsearch.similarity_search_with_score(query, k=k)
@@ -165,7 +165,7 @@ def index():
 
                     # Perform a similarity search to find relevant documents
                     docs_and_scores = vector_search.similarity_search(question, k=10)
-                    SIMILARITY_THRESHOLD = 0.2
+                    SIMILARITY_THRESHOLD = 0.2 #Increase the similarity score if the bot makes up the answer other than getting from the context/documents.
                     relevant_docs = [doc for doc, score in docs_and_scores if score >= SIMILARITY_THRESHOLD]
 
                     if not relevant_docs:
