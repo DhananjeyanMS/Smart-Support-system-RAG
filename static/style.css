@@ -1,0 +1,262 @@
+/* General page settings */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a18cd1); /* Pink, Yellow, Purple gradient */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    max-width: 1200px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.info-area {
+    width: 30%;
+    background-color: #f7f7f7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: left;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.app-description {
+    font-size: 1rem;
+    color: #666;
+}
+
+.chat-area {
+    width: 70%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+.chat-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 10px; /* Add some space between messages */
+    font-size: 1rem; /* Adjust font size for better readability */
+  
+}
+
+.user-message {
+    background-color: #80deea; /* Light teal background */
+    color: #004d40; /* Dark teal text */
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 60%; /* Ensure user message doesn't overflow */
+    margin-left: auto; /* Align user message to the right */
+    word-wrap: break-word;
+    font-size: 1rem; /* Font size for user messages */
+}
+
+
+.bot-message {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    word-wrap: break-word;
+    max-width: 60%; /* Fixed width for bot message */
+    font-size: 1rem; /* Font size for user messages */
+    line-height: 1.6;
+}
+
+
+.copy-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.copy-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+
+.text-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Styling for the Send button (icon-based) */
+.send-btn {
+    background-color: #b39ddb;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 20px; /* Increase font size for the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-btn:hover {
+    background-color: #7e57c2;
+}
+
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+}
+
+.action-btn {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.sources {
+    font-size: 0.8em; /* Smaller font size for sources */
+    margin-top: 5px;
+    color: rgb(29, 0, 252);
+}
+
+
+/* Clear chat button - light red, hover bright red */
+#clear-chat {
+    background-color: #ffcccc; /* Light red */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+#clear-chat:hover {
+    background-color: #ff6666; /* Bright red on hover */
+    color: white;
+}
+
+/* Generate email button - mild green, hover dark green */
+#generate-email {
+    background-color: #c1e1c1; /* Mild green */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+#generate-email:hover {
+    background-color: #86b487; /* Dark green on hover */
+    color: white;
+}
+
+
+.info-gif {
+    display: block; /* Make sure the image is treated as a block-level element */
+    margin: 0 auto; /* Center the image horizontally */
+    width: 100%; /* Adjust the width to make it responsive */
+    max-width: 300px; /* Limit the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow for a modern look */
+    margin-top: 20px; /* Add some spacing from the text above */
+}
+
+/* Style for headings within the bot message */
+.bot-message h1, .bot-message h2, .bot-message h3 {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Style for paragraphs in the bot message */
+.bot-message p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Style for any bold text in the bot message */
+.bot-message strong {
+    font-weight: bold;
+    color: #333;
+}
