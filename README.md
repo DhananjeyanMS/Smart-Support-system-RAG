@@ -23,8 +23,11 @@ This repository contains a Flask-based chatbot application that integrates OpenA
    - Clear the chat history with a simple API call.
    - Chat history is used to maintain context during conversations.
 
-4. **Copy button to copy bot messages**:
+5. **Copy button to copy bot messages**:
    - Copy the email content/ bot instruction with simple click on the bot message.
+  
+6. **Track the source**:
+   - Each bot message accompanies with the source details, where the bot fetched it from.
    
 
 ## Installation
