@@ -235,4 +235,43 @@ def generate_email():
         # Return a 400 error if there is no previous message
         return jsonify({'response': 'No previous bot message to generate email from.'}), 400
 
-    last_bot_message = chat_history[-1][1]  #
+    last_bot_message = chat_history[-1][1]  # Get the last bot message
+
+    # Function to stream the email generation
+    def generate():
+        try:
+            # Create a prompt for generating the email
+            custom_prompt = f"""Act like a professional customer support email writer. You have been crafting clear, empathetic, and efficient support emails for over 15 years. Ensure the email is structured in valid innerHTML format, using proper tags like <p>, <ul>, <li>, <br>, and <strong> with proper openings and closings to ensure easy parsing and readability for any systems that need to interpret or present the content.
+Here is the mail content:
+{last_bot_message}
+
+Your Email:
+"""
+            # Call OpenAI's API with streaming enabled to generate the email
+            response = openai.ChatCompletion.create(
+                api_key=openai_api_key,
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": custom_prompt}],
+                temperature=0,
+                stream=True
+            )
+
+            # Stream the generated email back to the user
+            email_response = ''
+            for chunk in response:
+                token = chunk['choices'][0]['delta'].get('content', '')
+                email_response += token
+                yield f'data: {token}\n\n'
+            chat_history.append(("Generated Email", email_response))
+
+        except Exception as e:
+            # Log and return an error message if an issue occurs during email generation
+            logging.error(f"Error generating email: {str(e)}")
+            yield f'data: Error generating email\n\n'
+
+    # Return the streamed response
+    return Response(stream_with_context(generate()), mimetype='text/event-stream')
+
+# Run the Flask application
+if __name__ == '__main__':
+    app.run(debug=True)
