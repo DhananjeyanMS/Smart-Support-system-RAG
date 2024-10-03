@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ChatBot</title>
+        <!-- Link to Google Fonts for Roboto -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://unpkg.com/event-source-polyfill/src/eventsource.min.js"></script>
+        <script src="/static/script.js" defer></script>
+</head>
+    
+<body>
+    <div class="container">
+        <div class="info-area">
+            <header class="header">
+                <h1>🤖 Smart Support</h1>
+                <div class="app-description">
+                    <p>This app is an LLM-powered chatbot built using:</p>
+                    <ul>
+                        <li>OpenAI | GPT 3.5 - turbo</li>
+                        <li>Langchain | RAG</li>
+                        <li>Python & Javascript</li>
+                    </ul>
+                    <img src="/static/livebot.gif" alt="Info GIF" class="info-gif"> 
+                </div>
+                
+            </header>
+        </div>
+        <div class="chat-area">
+            <div class="chat-body">
+                <div id="chat-content" class="chat-content"></div>
+            </div>
+            <div class="input-area">
+                <form id="text-form" class="text-form">
+                    <input type="text" id="message-input" placeholder="Type a message..." required>
+                    <button type="submit" class="send-btn">✈️</button>
+                </form>
+                <div class="action-buttons">
+                    <button id="clear-chat" class="action-btn">Clear Chat</button>
+                    <button id="generate-email" class="action-btn">Generate Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© 2024 Smart Support. All rights reserved.</p>
+    </footer>
+</body>
+</html>
